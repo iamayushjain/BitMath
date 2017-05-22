@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Google Play game services IDs.
+Save this file as res/values/games-ids.xml in your project.
+-->
+<resources>
+    <string name="app_id">381569484</string>
+    <string name="package_name">com.ayush.bitmath</string>
+    <string name="achievement_lightning_fast">CggIzJP5tQEQAhAC</string>
+    <string name="leaderboard_bit_math_global_rank">CggIzJP5tQEQAhAB</string>
+</resources>

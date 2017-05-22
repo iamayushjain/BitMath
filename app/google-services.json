@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "381569484",
+    "firebase_url": "https://bit-math.firebaseio.com",
+    "project_id": "bit-math",
+    "storage_bucket": "bit-math.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381569484:android:26fa48864c160314",
+        "android_client_info": {
+          "package_name": "com.ayush.bitmath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381569484-e33nrv6lbg2slo76dm4n7g6kbki08k1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz4Av55yFMIGZzR0GAZbV2tBy9CvHshqA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
