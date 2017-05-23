@@ -1,0 +1,30 @@
+<rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="0">
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item android:top="0dp" android:start="-200dp" android:end="-200dp">
+
+        <shape>
+            <solid android:color="@color/redLight" />
+        </shape>
+ </item>
+    <item android:top="390px" android:start="-200dp" android:end="-200dp">
+
+        <shape>
+            <solid android:color="@color/orangleLight" />
+        </shape>
+
+    </item>
+    <item android:top="780px" android:bottom="-200dp" android:start="-200dp" android:end="-200dp">
+
+        <shape>
+            <solid android:color="@color/blueLight" />
+        </shape>
+   </item>
+
+</layer-list>
+    </rotate>

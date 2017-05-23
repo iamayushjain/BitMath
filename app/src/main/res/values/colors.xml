@@ -6,4 +6,9 @@
     <color name="colorBackground">#151B29</color>
     <color name="colorYellow">#F5FA55</color>
 
+    <color name="redDark">#cb3434</color>
+    <color name="redLight">#e5625c</color>
+    <color name="orangleLight">#f9bf76</color>
+    <color name="blueLight">#8eb2c5</color>
+
 </resources>
