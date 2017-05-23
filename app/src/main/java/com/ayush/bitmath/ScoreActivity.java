@@ -1,11 +1,14 @@
 package com.ayush.bitmath;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ayush.bitmath.Utils.LogWrapper;
@@ -15,8 +18,9 @@ import com.google.android.gms.games.Games;
 
 public class ScoreActivity extends AppCompatActivity {
 
-    private TextView textViewScore, textViewHighScore;
-    private Button buttonReplay, buttonStandings;
+    private Button textViewScore, textViewHighScore;
+    private ImageView buttonReplay, buttonStandings;
+    LinearLayout option;
     int currentScore = 0;
     GoogleApiClient apiClient;
 
@@ -31,10 +35,14 @@ public class ScoreActivity extends AppCompatActivity {
     }
 
     private void init() {
-        textViewScore = (TextView) findViewById(R.id.scoreText);
-        textViewHighScore = (TextView) findViewById(R.id.highScoreText);
-        buttonReplay = (Button) findViewById(R.id.buttonReplay);
-        buttonStandings = (Button) findViewById(R.id.buttonStandings);
+        textViewScore = (Button) findViewById(R.id.scoreText);
+        textViewHighScore = (Button) findViewById(R.id.highScoreText);
+        buttonReplay = (ImageView) findViewById(R.id.buttonReplay);
+        buttonStandings = (ImageView) findViewById(R.id.buttonStandings);
+        option=(LinearLayout)findViewById(R.id.option);
+        findViewById(R.id.scoreText).getBackground().setLevel(0);
+        findViewById(R.id.highScoreText).getBackground().setLevel(1);
+        findViewById(R.id.option).getBackground().setLevel(2);
 //        apiClient = new GoogleApiClient.Builder(getApplicationContext())
 //                .addApi(Games.API)
 //                .addScope(Games.SCOPE_GAMES)
@@ -74,9 +82,13 @@ public class ScoreActivity extends AppCompatActivity {
         buttonStandings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(
+               /* startActivityForResult(
                         Games.Leaderboards.getLeaderboardIntent(apiClient,
-                                getString(R.string.leaderboard_bit_math_global_rank)), 0);
+                                getString(R.string.leaderboard_bit_math_global_rank)), 0);*/
+                Intent i=new Intent(ScoreActivity.this,HomeActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.fade,R.anim.fadeout);
+
             }
         });
     }

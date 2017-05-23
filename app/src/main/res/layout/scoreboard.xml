@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="400dp"
+    tools:context="com.ayush.bitmath.ScoreActivity"
+    android:layout_gravity="center"
+    android:id="@+id/downLayout"
+    android:orientation="vertical"
+
+    >
+
+    <Button
+        android:id="@+id/scoreText"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+
+        android:foreground="@drawable/ripple"
+
+        android:layout_marginTop="8dp"
+
+        android:text="SCORE"
+        android:textColor="#ffffff"
+        android:textSize="35sp"
+        tools:ignore="Suspicious0dp"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/highScoreText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button"
+        android:layout_below="@id/scoreText"
+        android:layout_weight="1"
+        android:text="High Score"
+        android:layout_marginTop="8dp"
+
+        android:foreground="@drawable/ripple"
+        android:textColor="#ffffff"
+
+        android:textSize="35sp" />
+   <LinearLayout android:layout_below="@id/highScoreText"
+       android:orientation="horizontal"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="8dp"
+android:id="@+id/option"
+       android:layout_marginLeft="8dp"
+       android:layout_marginRight="8dp"
+       android:layout_marginBottom="8dp"
+       android:layout_width="match_parent"
+       android:background="@drawable/button">
+
+       <ImageView
+           android:id="@+id/buttonStandings"
+           android:layout_width="48dp"
+           android:layout_height="48dp"
+           android:layout_marginLeft="8dp"
+           android:layout_marginRight="8dp"
+           android:layout_marginBottom="8dp"
+           android:background="@drawable/homeicon"
+
+           android:layout_weight="1"
+           android:text="High Score"
+           android:layout_marginTop="8dp"
+
+           android:foreground="@drawable/ripple"
+           android:textColor="#ffffff"
+           />
+       <ImageView
+           android:id="@+id/buttonReplay"
+           android:layout_width="48dp"
+           android:layout_height="48dp"
+           android:layout_marginLeft="8dp"
+           android:layout_marginRight="8dp"
+           android:layout_marginBottom="8dp"
+           android:background="@drawable/play_again"
+           android:layout_weight="1"
+           android:text="High Score"
+           android:layout_marginTop="8dp"
+
+           android:foreground="@drawable/ripple"
+           android:textColor="#ffffff"
+           />
+
+   </LinearLayout>
+</RelativeLayout>
