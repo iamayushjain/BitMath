@@ -15,7 +15,7 @@
     <shape android:shape="rectangle"
         xmlns:android="http://schemas.android.com/apk/res/android">
         <corners android:radius="30dp"/>
-        <solid android:color="@color/orangleLight"/>
+        <solid android:color="@color/orangeLight"/>
     </shape>
 </item>
 <item android:maxLevel="2">

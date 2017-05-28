@@ -7,9 +7,16 @@ package com.ayush.bitmath.Utils;
 
 public class Constants {
 
-    public static final String SHARED_PREF_LOGIN_TABLE = "LOGIN";
-    public static final String SHARED_PREF_AUTO_LOGIN = "autoLogin";
-    public static final String SHARED_PREF_USERNAME = "username";
+    public static final int SPLASH_ACTIVITY_TIMEOUT = 2500;
+    public static final String TYPEFACE_VTKS_CHALK = "vtks _chalk.ttf";
+    public static final int GAME_TIMER = 30;
+    public static final int VIBRATOR_DURATION = 40;
+
+    public static final String INTENT_CURRENT_SCORE = "currentScore";
+    public static final String SHARED_PREF_SCORE = "Score";
+    public static final String SHARED_PREF_SCORE_HIGH_SCORE = "HighScore";
+
+
     public static final String SHARED_PREF_PASSWORD = "password";
     public static final String AUTO_LOGIN_TRUE_CASE = "1";
     public static final String AUTO_LOGIN_FALSE_CASE = "0";

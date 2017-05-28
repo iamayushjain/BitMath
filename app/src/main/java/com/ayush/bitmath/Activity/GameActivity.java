@@ -1,4 +1,4 @@
-package com.ayush.bitmath;
+package com.ayush.bitmath.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,23 +8,27 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ayush.bitmath.Logical.Addition;
+import com.ayush.bitmath.R;
+import com.ayush.bitmath.Utils.Constants;
+import com.ayush.bitmath.Utils.Utils;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class MainActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
 
     private TextView textViewTimer, textViewEquation, textViewScore;
     private EditText outputEditText;
-    Addition addition;
-    int score = 0;
+    private Addition addition;
+    private int score = 0;
     boolean isTimerStart = false;
-    ProgressBar progressBarTimer;
+    private ProgressBar progressBarTimer;
     private AdView mAdView;
 
     @Override
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         progressBarTimer = (ProgressBar) findViewById(R.id.progressBarCircle);
         mAdView = (AdView) findViewById(R.id.adView);
         loadBannerAds();
-        progressBarTimer.setMax(30);
+        progressBarTimer.setMax(Constants.GAME_TIMER);
 
     }
 
@@ -50,18 +54,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         isTimerStart = false;
-        textViewTimer.setText("Timer");
+        textViewTimer.setText(Constants.GAME_TIMER + "");
         score = 0;
         textViewScore.setText(score + "");
         outputEditText.setText("");
         addition = new Addition();
         addition.innerLoop();
-        progressBarTimer.setProgress(30);
+        progressBarTimer.setProgress(Constants.GAME_TIMER);
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         inputMethodManager.toggleSoftInputFromWindow(outputEditText.getWindowToken(), InputMethodManager.SHOW_FORCED, 0);
         outputEditText.requestFocus();
 
-        final CountDownTimer timer = new CountDownTimer(30000, 1000) {
+        final CountDownTimer timer = new CountDownTimer(Constants.GAME_TIMER * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 textViewTimer.setText(millisUntilFinished / 1000 + "");
@@ -69,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                textViewTimer.setText("done");
+                textViewTimer.setText(0 + "");
                 progressBarTimer.setProgress(0);
-                Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
-                intent.putExtra("currentScore", score);
+                Intent intent = new Intent(GameActivity.this, ScoreActivity.class);
+                intent.putExtra(Constants.INTENT_CURRENT_SCORE, score);
                 startActivity(intent);
 
             }
@@ -80,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         textViewEquation.setText(addition.getEquation());
-//        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
         outputEditText.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
@@ -90,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
                 if (!(s == null || (s.toString()).equals(""))) {
+
                     int editTextOutput = Integer.parseInt(s.toString());
                     if (editTextOutput == addition.getOutput()) {
                         score++;
                         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                        v.vibrate(40);
+                        v.vibrate(Constants.VIBRATOR_DURATION);
                         textViewScore.setText(score + "");
                         addition.innerLoop();
                         textViewEquation.setText(addition.getEquation());
@@ -111,25 +116,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-//        Toast.makeText(getApplicationContext(), "Pause", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-//        Toast.makeText(getApplicationContext(), "Stop", Toast.LENGTH_LONG).show();
-    }
-
     private void loadBannerAds() {
-        AdRequest adRequest1 = new AdRequest.Builder()
-                .addTestDevice(getResources().getString(R.string.test_id_1))
-                .addTestDevice(getResources().getString(R.string.test_id_2))
-                .addTestDevice(getResources().getString(R.string.test_id_3))
-                .build();
-        mAdView.loadAd(adRequest1);
+        if (Utils.isNetworkAvailable(getApplicationContext())) {
+            AdRequest adRequest1 = new AdRequest.Builder()
+                    .addTestDevice(getResources().getString(R.string.test_id_1))
+                    .addTestDevice(getResources().getString(R.string.test_id_2))
+                    .addTestDevice(getResources().getString(R.string.test_id_3))
+                    .build();
+            mAdView.loadAd(adRequest1);
+        } else {
+            mAdView.setVisibility(View.GONE);
+        }
     }
 
 }

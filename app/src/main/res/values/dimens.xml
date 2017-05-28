@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_title_to_tag_line">60dp</dimen>
+    <dimen name="elevation_title">4dp</dimen>
+    <dimen name="home_activity_button_text_size">35sp</dimen>
+    <dimen name="home_activity_button_margin">8dp</dimen>
+    <dimen name="home_activity_button_elevation">2dp</dimen>
+
+</resources>
