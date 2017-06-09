@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayoutButton"
     android:layout_width="280dp"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="com.ayush.bitmath.Activity.ScoreActivity">
 
     <Button
@@ -24,7 +25,7 @@
         android:foreground="@drawable/ripple"
         android:text="SCORE"
         android:textColor="#ffffff"
-        android:textSize="35sp"
+        android:textSize="32sp"
         tools:ignore="Suspicious0dp" />
 
     <Button
@@ -40,10 +41,10 @@
         android:background="@drawable/button"
         android:foreground="@drawable/ripple"
 
-        android:text="High Score"
+        android:text="BEST"
         android:textColor="#ffffff"
 
-        android:textSize="35sp" />
+        android:textSize="32sp" />
 
     <LinearLayout
         android:id="@+id/option"
@@ -59,31 +60,31 @@
 
         <ImageView
             android:id="@+id/buttonStandings"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
 
             android:layout_weight="1"
-            android:background="@drawable/homeicon"
-            android:foreground="@drawable/ripple"
+            android:background="@drawable/hicon"
+
 
             android:text="High Score"
             android:textColor="#ffffff" />
 
         <ImageView
             android:id="@+id/buttonReplay"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:background="@drawable/play_again"
-            android:foreground="@drawable/ripple"
+            android:background="@drawable/replay1"
+
 
             android:text="High Score"
             android:textColor="#ffffff" />

@@ -18,11 +18,15 @@ import com.ayush.bitmath.Logical.Addition;
 import com.ayush.bitmath.R;
 import com.ayush.bitmath.Utils.Constants;
 import com.ayush.bitmath.Utils.Utils;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 public class GameActivity extends AppCompatActivity {
-
+    InterstitialAd mInterstitialAd;
     private TextView textViewTimer, textViewEquation, textViewScore;
     private EditText outputEditText;
     private Addition addition;
@@ -30,11 +34,13 @@ public class GameActivity extends AppCompatActivity {
     boolean isTimerStart = false;
     private ProgressBar progressBarTimer;
     private AdView mAdView;
+    private NativeExpressAdView mNativeAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_activity);
+        MobileAds.initialize(this, "ca-app-pub-8614462024900398~3850308663");
         init();
     }
 
@@ -44,10 +50,61 @@ public class GameActivity extends AppCompatActivity {
         textViewScore = (TextView) findViewById(R.id.textScore);
         outputEditText = (EditText) findViewById(R.id.outputEditText);
         progressBarTimer = (ProgressBar) findViewById(R.id.progressBarCircle);
-        mAdView = (AdView) findViewById(R.id.adView);
-        loadBannerAds();
+       mAdView = (AdView) findViewById(R.id.adView);
+      //  mNativeAd = (NativeExpressAdView)findViewById(R.id.adView1);
+       // mAd= (NativeExpressAdView) findViewById(R.id.adView);
+      loadBannerAds();
+      //  showAdd();
+       //showNativeAdd();
         progressBarTimer.setMax(Constants.GAME_TIMER);
 
+    }
+public void showNativeAdd(){
+
+    if (Utils.isNetworkAvailable(getApplicationContext())){
+    AdRequest request = new AdRequest.Builder().addTestDevice(getResources().getString(R.string.test_id_1))
+            .addTestDevice(getResources().getString(R.string.test_id_2))
+            .addTestDevice(getResources().getString(R.string.test_id_3)).build();
+        mNativeAd.loadAd(request);}
+    else {
+        mNativeAd.setVisibility(View.GONE);
+    }
+}
+    public void showAdd()
+    {
+
+
+        mInterstitialAd = new InterstitialAd(this);
+
+        // set the ad unit ID
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+
+        if (Utils.isNetworkAvailable(getApplicationContext())) {
+
+
+            AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    // Check the LogCat to get your test device ID
+                    .addTestDevice(getResources().getString(R.string.test_id_1))
+                    .addTestDevice(getResources().getString(R.string.test_id_2))
+                    .addTestDevice(getResources().getString(R.string.test_id_3))
+                    .build();
+            mInterstitialAd.loadAd(adRequest);
+        }
+        // Load ads into Interstitial Ads
+
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+        });
+    }
+
+    private void showInterstitial() {
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 
     @Override

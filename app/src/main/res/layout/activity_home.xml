@@ -69,6 +69,7 @@
             android:foreground="@drawable/ripple"
             android:text="@string/home_activity_high_score"
             android:textColor="@color/white"
+            android:onClick="showLeaderboard"
             android:textSize="@dimen/home_activity_button_text_size" />
 
         <Button
@@ -82,6 +83,7 @@
             android:background="@drawable/button"
             android:elevation="@dimen/home_activity_button_elevation"
             android:foreground="@drawable/ripple"
+            android:onClick="share"
             android:text="@string/home_activity_share"
             android:textColor="@color/white"
             android:textSize="@dimen/home_activity_button_text_size" />
