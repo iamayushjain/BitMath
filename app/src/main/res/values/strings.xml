@@ -11,7 +11,8 @@
     <string name="home_activity_share">Share</string>
 
     <string name="interstitial_full_screen">ca-app-pub-8614462024900398/6803775067</string>
-    <string name="native_add">ca-app-pub-8614462024900398/9419164262</string>
+    <string name="native_add">ca-app-pub-8614462024900398/8837081467</string>
     <string name="banner_add">ca-app-pub-8614462024900398/1535970666</string>
+    <string name="share_link">https://play.google.com/store/apps/details?id=com.ayush.bitmath</string>
 
 </resources>

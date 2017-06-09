@@ -9,7 +9,7 @@ public class Constants {
 
     public static final int SPLASH_ACTIVITY_TIMEOUT = 2500;
     public static final String TYPEFACE_VTKS_CHALK = "vtks _chalk.ttf";
-    public static final int GAME_TIMER = 30;
+    public static final int GAME_TIMER = 5;
     public static final int VIBRATOR_DURATION = 40;
 
     public static final String INTENT_CURRENT_SCORE = "currentScore";

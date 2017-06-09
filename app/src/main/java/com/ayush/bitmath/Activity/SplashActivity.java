@@ -37,11 +37,9 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     LogWrapper.printStackTrace(getApplicationContext(), e);
                 } finally {
-
                     Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.fade, R.anim.fadeout);
-
                 }
             }
         };

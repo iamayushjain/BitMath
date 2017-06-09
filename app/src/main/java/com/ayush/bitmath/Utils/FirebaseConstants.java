@@ -6,5 +6,7 @@ package com.ayush.bitmath.Utils;
 
 public class FirebaseConstants {
     public static final String GENERAL = "basics";
+    public static final String ADS_COUNT_HOME = "ad_home";
+
 
 }
